@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<head>
+		<meta charset="utf-8">
+		<title>测试管理平台</title>
+	<link href="{% static 'testsite/css/index.css' %}" rel="stylesheet">
+	</head>
+<body bgcolor="#FCFCFC" style="border-right:1px solid gray"> 
+<div>
+<div class="top">
+<!-- 导航栏-->
+<ul class="nav">
+<li class="nav-welcome"  ><h3>欢迎您！{{ login_form.name }}<h3></li>
+<li class="nav-logout"><a href="/logout/" style="padding-left:96%">Logout</a></li>
+</ul>
+</div>
+
+<div class="left">
+	        <ul onclick="gotoPage('/demandinfo')"><img src="../static/testsite/images/version.png" style="width:20px;heigth:20px" />&nbsp;版本管理</ul>
+			<ul>
+				<a href="javascript:onClick=show('1')"><img src="../static/testsite/images/case.png" style="width:20px;heigth:20px"/>&nbsp;用例管理</a>
+			</ul>
+			<ul id="1">
+			    <li onclick="gotoPage('test.html')"><img src="../static/testsite/images/case-1.png" style="width:15px;heigth:15px" />&nbsp;功能案例</li>
+				<li onclick="gotoPage('/upload/')"><img src="../static/testsite/images/case-2.png" style="width:15px;heigth:15px" />&nbsp;接口脚本<br></li>
+				<li onclick="gotoPage('test.html')"><img src="../static/testsite/images/case-3.png" style="width:15px;heigth:15px" />&nbsp;性能脚本<br></li>	
+			</ul>
+			
+			<ul>
+				<a href="javascript:onClick=show('2')"><img src="../static/testsite/images/test.png" style="width:20px;heigth:20px"/>&nbsp;测试管理</a>
+			</ul>
+			<ul id="2">
+				<li onclick="gotoPage('test.html')"><img src="../static/testsite/images/test-1.png" style="width:15px;heigth:15px"/>&nbsp;功能测试</li>
+				<li onclick="gotoPage('../scriptlist')"><img src="../static/testsite/images/test-2.png" style="width:15px;heigth:15px"/>&nbsp;接口测试</li>
+				<li onclick="gotoPage('test.html')"><img src="../static/testsite/images/test-3.png" style="width:15px;heigth:15px"/>&nbsp;性能测试</li>			
+			</ul>
+			
+			<ul>
+				<a href="javascript:onClick=show('3')"><img src="../static/testsite/images/report.png" style="width:20px;heigth:20px"/>&nbsp;测试报告</a>
+			</ul>
+			<ul id="3">
+				<li onclick="gotoPage('test.html')"><img src="../static/testsite/images/test-1.png" style="width:15px;heigth:15px"/>&nbsp;功能报告</li>
+				<li onclick="gotoPage('../reportlist')"><img src="../static/testsite/images/test-2.png" style="width:15px;heigth:15px"/>&nbsp;接口报告</li>
+				<li onclick="gotoPage('test.html')"><img src="../static/testsite/images/test-3.png" style="width:15px;heigth:15px"/>&nbsp;性能报告</li>
+			</ul>
+			<ul onclick="gotoPage('test.html')"><a href=""><img src="../static/testsite/images/version.png" style="width:20px;heigth:20px" />&nbsp;BUG管理</a></ul>
+			<ul onclick="gotoPage('test.html')"><a href="http://172.190.105.128:8888/" target="mainFrame"><img src="../static/testsite/images/operate.png" style="width:20px;heigth:20px" />&nbsp;项目部署</a></ul>
+			<ul onclick="gotoPage('test.html')"><a href=""><img src="../static/testsite/images/email.png" style="width:20px;heigth:20px" />&nbsp;发送邮件</a></ul>
+			<ul onclick="gotoPage('http://www.baidu.com')"><img src="../static/testsite/images/summary.png" style="width:20px;heigth:20px" />&nbsp;测试总结</a></ul>
+</div>
+<div class="right">
+<iframe id="display" margin="0" width="100%" height="100%" frameborder="no" ></iframe>
+<div>
+</div>
+		
+</body>
+<script type="text/javascript">
+			function show(d1){
+				if (document.getElementById(d1).style.display == 'none') {
+					document.getElementById(d1).style.display = 'block'; //触动的层如果处于隐藏状态，即显示
+				} else {
+					document.getElementById(d1).style.display = 'none'; //触动的层如果处于显示状态，即隐藏
+				}
+			}
+			
+			function gotoPage(url){
+                var display = document.getElementById("display");
+                display.src = url
+    }
+</script>
+</html>

@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from iyb import iybviews
+from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('register/', iybviews.register),
+    path('login/', iybviews.login),
+    path('logout/', iybviews.logout),
+    path('captcha',include('captcha.urls')),
 ]
