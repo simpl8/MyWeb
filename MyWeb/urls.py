@@ -24,4 +24,5 @@ urlpatterns = [
     path('login/', iybviews.login),
     path('logout/', iybviews.logout),
     path('captcha',include('captcha.urls')),
+    path('index/', iybviews.index)
 ]
